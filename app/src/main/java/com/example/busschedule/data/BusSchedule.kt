@@ -28,8 +28,8 @@ import androidx.room.PrimaryKey
  */
 @Entity(tableName = "Schedule")
 data class BusSchedule(
-    @PrimaryKey
-    val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
     @NonNull
     @ColumnInfo(name = "stop_name")
     val stopName: String,

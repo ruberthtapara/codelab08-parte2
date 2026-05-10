@@ -20,7 +20,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = arrayOf(BusSchedule::class), version = 1)
+@Database(entities = [BusSchedule::class], version = 1, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun busScheduleDao(): BusScheduleDao
 
@@ -33,7 +33,7 @@ abstract class AppDatabase: RoomDatabase() {
                 Room.databaseBuilder(
                     context,
                     AppDatabase::class.java,
-                    "app_database"
+                    "bus_schedule_database"
                 )
                     .createFromAsset("database/bus_schedule.db")
                     // Wipes and rebuilds instead of migrating if no Migration object.
